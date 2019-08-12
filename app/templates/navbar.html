@@ -29,20 +29,30 @@
                     <!-- Setting the links to #! will ensure that no action takes place on click. -->
                     <li><a href="#!">Home</a></li>
                     <li><a href="#!">About</a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="#!">Neighbourhood services</a>
                         <ul class="nav-dropdown">
                             <li><a href="#!">See businessess</a></li>
                             <li><a href="#!">Neighbourhood details</a></li>
-                            <li><a href="#!">Report injustices</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% url 'prof' %}">Profile</a></li>
+                    <li><a href="#!">Profile</a> 
+                        <ul class="nav-dropdown">
+                            <li><a href="{% url 'prof' %}">View profile</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#!">Contact us</a>
                         <ul class="nav-dropdown">
                             <li><a href="#">Health Services</a></li>
                             <li><a href="#">Police authorities</a></li>
                         </ul>
                     </li>
+                    {% else %}
+                    <li>
+                        <a href="/accounts/login">Login</a>
+                      </li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
