@@ -5,4 +5,4 @@ def index(request):
     """
     View function to render the homepage
     """
-    return render(request,"index.html")
+    return render(request,"all-templates/index.html")
