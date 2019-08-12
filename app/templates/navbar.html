@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Navbar</title>
+    <link href="https://fonts.googleapis.com/css?family=Diplomata&display=swap" rel="stylesheet">
     {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -16,7 +17,9 @@
     <section class="navigation">
         <div class="nav-container">
             <div class="brand">
-                <a href="#!">LOGO</a>
+                <a href="#!">
+                   <h2>Watchmen</h2>
+                </a>
             </div>
             <nav>
                 <div class="nav-mobile">
@@ -26,43 +29,28 @@
                     <!-- Setting the links to #! will ensure that no action takes place on click. -->
                     <li><a href="#!">Home</a></li>
                     <li><a href="#!">About</a></li>
-                    <li><a href="#!">Services</a>
+                    <li><a href="#!">Neighbourhood services</a>
                         <ul class="nav-dropdown">
-                            <li><a href="#!">Web Design</a></li>
-                            <li><a href="#!">Web Development</a></li>
-                            <li><a href="#!">Graphic Design</a></li>
+                            <li><a href="#!">See businessess</a></li>
+                            <li><a href="#!">Neighbourhood details</a></li>
+                            <li><a href="#!">Report injustices</a></li>
                         </ul>
                     </li>
-                    <li><a href="#!">Pricing</a></li>
-                    <li><a href="#!">Contact</a></li>
+                    <li><a href="#!">Profile</a></li>
+                    <li><a href="#!">Contact us</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="#">Health Services</a></li>
+                            <li><a href="#">Police authorities</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
     </section>
-    <script>
-        (function($) { // Begin jQuery
-            $(function() { // DOM ready
-                // If a link has a dropdown, add sub menu toggle.
-                $('nav ul li a:not(:only-child)').click(function(e) {
-                    $(this).siblings('.nav-dropdown').toggle();
-                    // Close one dropdown when selecting another
-                    $('.nav-dropdown').not($(this).siblings()).hide();
-                    e.stopPropagation();
-                });
-                // Clicking away from dropdown will remove the dropdown class
-                $('html').click(function() {
-                    $('.nav-dropdown').hide();
-                });
-                // Toggle open and close nav styles on click
-                $('#nav-toggle').click(function() {
-                    $('nav ul').slideToggle();
-                });
-                // Hamburger to X toggle
-                $('#nav-toggle').on('click', function() {
-                    this.classList.toggle('active');
-                });
-            }); // end DOM ready
-        })(jQuery); // end jQuery
-    </script>
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+        {% bootstrap_javascript %}
+    {% endblock %}
 </body>
 </html>
