@@ -13,6 +13,11 @@ class Profile(models.Model):
     neighbourhood_name = models.CharField(max_length=20,default='Nameless')
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
 
+    @classmethod
+    def get_by_id(cls, id):
+        profile = Profile.objects.get(user = id)
+        return profile
+    
 class Neighbourhood(models.Model):
     """
     Model class for a single neighbourhood

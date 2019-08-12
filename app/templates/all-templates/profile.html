@@ -1,5 +1,16 @@
-{% extends 'all-templates/base.html' %}
-
+{%extends 'all-templates/base.html'%} 
+{% load bootstrap3 %}
 {% block content %}
-<h1>Your profile will be here</h1>
+
+<div class="profile-details">
+    <div class="profile-img">
+        {% if profiles.photo %}
+        <img src="{{profiles.photo.url}}" alt="profile-photo">
+        {% else %}
+        <img src="/media/images/anonymous.png" alt="avatar">
+        {% endif %}
+    </div><br><br><br><br><br>
+    <div class="username"><h2>{{profile.neighbourhood_name}}</h2></div>
+</div>
+{{form.media}}
 {% endblock %}

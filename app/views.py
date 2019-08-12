@@ -17,11 +17,15 @@ def index(request):
     return render(request,"all-templates/index.html")
 
 @login_required(login_url='/accounts/login/')
-def profile(request):
+def profile(request,username):
     """
     View function to render the homepage
     """
-    return render(request,"all-templates/profile.html")
+    profile = User.objects.get(username=username)
+    profiles = Profile.get_by_id(profile.id)
+    return render(request,"all-templates/profile.html",{"profiles":profiles})
+
+
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):
     """
@@ -34,7 +38,7 @@ def edit_profile(request):
             prof = form.save(commit=False)
             prof.user = current_user
             prof.save()
-            return redirect('prof')
+            return redirect('prof',username=current_user)
     else:
         form = ProfileForm()
     return render(request, 'all-templates/edit.html', {'form': form, 'profile':profile})
