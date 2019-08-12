@@ -6,3 +6,9 @@ def index(request):
     View function to render the homepage
     """
     return render(request,"all-templates/index.html")
+
+def profile(request):
+    """
+    View function to render the homepage
+    """
+    return render(request,"all-templates/profile.html")
