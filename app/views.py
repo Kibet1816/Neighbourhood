@@ -10,12 +10,13 @@ def index(request):
     """
     View function to render the homepage
     """
+    neighbourhoods = Hood.objects.all()
     try:
         current_user=request.user
         # profile =Profile.objects.get(user=current_user)
     except ObjectDoesNotExist:
         return redirect('edit')
-    return render(request,"all-templates/index.html")
+    return render(request,"all-templates/index.html",{"neighbourhood":neighbourhoods})
 
 @login_required(login_url='/accounts/login/')
 def profile(request, username):
@@ -49,8 +50,9 @@ def addneighbourhood(request):
     if request.method == "POST":
         neighbourform = NeighbourhoodForm(request.POST, request.FILES)
         if neighbourform.is_valid():
-            neighbourform.save()
-            return redirect('welcome')
+            upload = neighbourform.save(commit=False)
+            upload.save()
+            return redirect('index')
         else:
             neighbourform = NeighbourhoodForm(request.POST, request.FILES)
     return render(request, 'all-templates/hood.html', {"neighbourform": neighbourform})

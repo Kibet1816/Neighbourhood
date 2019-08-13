@@ -1,4 +1,21 @@
-{% extends 'all-templates/base.html' %}
-
+{%extends 'all-templates/base.html'%}
 {% block content %}
+<div class="container">
+    <h1>neighbourHoods</h1>
+    <div class="row">
+        {% for neighbourhood in neighbourhoods %}
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" height="400px" src="{{neighbourhood.landing_page.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class=""><strong>{{neighbourhood.name}}</strong>:
+                        {{neighbourhood.location}}</h2>
+                    <a href="/hood_details/{{neighbourhood.id}}" style="text-decoration:none;">
+                        <button class="btn btn-success btn-lg">Details</button></a>
+                </div><br>
+            </div><br>
+        </div><br>
+        {% endfor %}
+    </div><br>
+</div>
 {% endblock %}

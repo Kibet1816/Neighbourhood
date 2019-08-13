@@ -3,11 +3,13 @@
 $content-width will be the max width of the content within the navigation bar. 
 $breakpoint determines at which width the media query breakpoint will take effect.
 */
+
+body {
+  background-color: #63D6E0;
+}
+
 nav {
   float: right;
-}
-.nav-container{
-  color: violet;
 }
 nav ul {
   list-style: none;
@@ -22,8 +24,8 @@ nav ul li a {
   display: block;
   padding: 0 20px;
   line-height: 70px;
-  background: #ffffff;
-  color: #463f3f;
+  background: wheat;
+  /* color: #463f3f; */
   text-decoration: none;
   /*
   The full path of this code is nav ul li a:not(:only-child):after. This means that the code will apply to any a tag in our nav list that is NOT an only child, aka any dropdown. The :after means it comes after the output of the tag. I’ve decided that to specify any nav item as a dropdown, it will be followed by a unicode arrow – ▾ (#9662).
@@ -58,7 +60,7 @@ nav ul li ul li a {
   position: absolute;
   top: 0;
   right: 0;
-  background: #fff;
+  background: blue;
   height: 70px;
   width: 70px;
 }
@@ -66,17 +68,21 @@ nav ul li ul li a {
 @media only screen and (max-width: 800px) {
   .nav-mobile {
     display: block;
+    background-color:blue;
   }
-  
+
   nav {
     width: 100%;
     padding: 70px 0 15px;
+    background-color:blue;
   }
   nav ul {
     display: none;
+    background-color:blue;
   }
   nav ul li {
     float: none;
+    background-color:blue;
   }
   nav ul li a {
     padding: 15px;
@@ -128,6 +134,7 @@ nav ul li ul li a {
 @media screen and (min-width: 800px) {
   .nav-list {
     display: block !important;
+    color:blue;
   }
 }
 /* 
@@ -135,7 +142,8 @@ nav ul li ul li a {
 */
 .navigation {
   height: 70px;
-  background: #ffffff;
+  background: wheat;
+  box-shadow: 1px 1px 2px;
 }
 
 /*
@@ -158,19 +166,4 @@ nav ul li ul li a {
 .brand a:visited {
   color: #463f3f;
   text-decoration: none;
-}
-.nav-container > .brand > a > h2{
-  font-family: 'Diplomata', cursive;
-  float: left;
-}
-.profile-img {
-  display: flex;
-  justify-content: center;
-  float: left;
-  margin-left: 50px;
-}
-
-.profile-img img {
-  border-radius: 10rem;
-  height: 130px;
 }
