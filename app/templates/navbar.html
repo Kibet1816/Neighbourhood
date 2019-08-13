@@ -18,7 +18,7 @@
         <div class="nav-container">
             <div class="brand">
                 <a href="#!">
-                   <h2>Watchmen</h2>
+                   <!-- <h2>Watchmen</h2> -->
                 </a>
             </div>
             <nav>
@@ -27,7 +27,7 @@
                 </div>
                 <ul class="nav-list">
                     <!-- Setting the links to #! will ensure that no action takes place on click. -->
-                    <li><a href="#!">Home</a></li>
+                    <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="#!">About</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="#!">Neighbourhood services</a>
@@ -36,6 +36,7 @@
                             <li><a href="#!">Neighbourhood details</a></li>
                         </ul>
                     </li>
+                    <li ><a href="{% url 'hood' %}">Add Neighbourhood</a></li>
                     <li><a href="#!">Profile</a> 
                         <ul class="nav-dropdown">
                             <li><a href="{% url 'prof' username=user %}">View profile</a></li>

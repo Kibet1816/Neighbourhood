@@ -163,3 +163,14 @@ nav ul li ul li a {
   font-family: 'Diplomata', cursive;
   float: left;
 }
+.profile-img {
+  display: flex;
+  justify-content: center;
+  float: left;
+  margin-left: 50px;
+}
+
+.profile-img img {
+  border-radius: 10rem;
+  height: 130px;
+}
