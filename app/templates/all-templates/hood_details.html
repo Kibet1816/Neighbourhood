@@ -1,14 +1,13 @@
 {% extends 'all-templates/base.html' %}
 {% block content %}
 {% load bootstrap3 %}
- {% load staticfiles%}
 <div class="container">
     <h1 class="card-title"><a>{{ neighbourhood.name }}</a></h1>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5" style="text-align: center">
             <br>
-            <h4>Click <a href="{%url 'new_business' pk=neighbourhood.id %}">here</a> to post about your
-                business</h4>
+            <hr>
+            <a href="{%url 'new_business' pk=neighbourhood.id %}"> <h3>Post your business here</h3></a> 
             <hr>
             <h3>Business in {{ neighbourhood.name }} </h3>
             {%if businesses%}
@@ -27,20 +26,28 @@
             {%else%}
             <p><b>no business at the moment</b></p>
             {%endif%}
+            
         </div>
-        <div class="col-md-6">
+        <div class="col-md-2 vl"></div>
+        <style>
+            .vl {
+                border-left: 6px solid wheat;
+                height: auto;
+            }
+        </style>
+        <div class="col-md-5" style="text-align: center">
             <br>
-            <h4>Click <a href="{%url 'new_post' pk=neighbourhood.id %}">here</a> to share something with your
-                neighbour.</h4>
+            <hr>
+            <a href="{%url 'new_post' pk=neighbourhood.id %}"> <h3>Share something with your neighbour here</h3></a> 
             <hr>
             <h3>News from {{ neighbourhood.name }} </h3>
             {%if posts%}
             {%for post in posts%}
-            <div class="card">
+            <div class="card" style="height: 500px; width:400px;" style="margin-left: 200px;">
                 <div class="view overlay">
                     <img class="card-img-top" src="{{post.image.url}}" alt="Card image cap">
                     <a>
-                        <div class="mask rgba-white-slight"></div>
+                        <div class="mask rgba-white-light"></div>
                     </a>
                 </div>
                 <div class="card-body elegant-color white-text rounded-bottom">
@@ -59,7 +66,6 @@
             <br>
         </div>
     </div>
-</div>
-
-
-{%endblock%}
+    </div>
+    
+    {%endblock%}
