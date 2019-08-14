@@ -1,16 +1,15 @@
 {%extends 'all-templates/base.html'%}
 {% block content %}
 <div class="container">
-    <h1>neighbourHoods</h1>
     <div class="row">
-        {% for neighbourhood in neighbourhoods %}
-        <div class="col-md-4">
+        {% for neighbourhood_item in neighbourhoods %}
+        <div class="col-md-4"><br><br>
             <div class="card">
-                <img class="card-img-top" height="400px" src="{{neighbourhood.landing_page.url}}" alt="Card image cap">
+                <img class="card-img-top" height="400px" src="{{neighbourhood_item.landing_page.url}}" alt="Card image cap">
                 <div class="card-body">
-                    <h2 class=""><strong>{{neighbourhood.name}}</strong>:
-                        {{neighbourhood.location}}</h2>
-                    <a href="/hood_details/{{neighbourhood.id}}" style="text-decoration:none;">
+                    <h2 class=""><strong>{{neighbourhood_item.name}}</strong>:
+                        {{neighbourhood_item.location}}</h2>
+                    <a href="/hood_details/{{neighbourhood_item.id}}" style="text-decoration:none;">
                         <button class="btn btn-success btn-lg">Details</button></a>
                 </div><br>
             </div><br>
