@@ -108,7 +108,7 @@ Create an issue mentioning the bug you have found
 
 ## Support and contact details
 
-Contact [John Wanjema](kibet1816@gmail.com) for further help/support
+Contact [Denis Kibet](kibet1816@gmail.com) for further help/support
 
 ### License
 
